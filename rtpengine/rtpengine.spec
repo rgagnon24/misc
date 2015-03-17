@@ -45,7 +45,7 @@ NGCP rtpengine in-kernel packet forwarding
 %setup -q
 
 %build
-RTPENGINE_VERSION="\"%{version}-%{release}\""
+export RTPENGINE_VERSION="\"%{version}-%{release}\""
 pushd daemon
 make
 popd
