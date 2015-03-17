@@ -1,3 +1,14 @@
 # Add extra options here
-# OPTIONS="--interface xxx.xxx.xxx.xxx --listen-ng xxx.xxx.xxx.xxx:60000 -m 50000 -M 55000 -E -L 7"
+# 
+# Example:
+# --interface  : Local interface for RTP
+# --listen-ng  : UDP port to listen on for NG Protocol commands
+# --port-min   : Lowest port to use for RTP
+# --port-max   : Highest port to use for RTP
+# --log-stderr : Log on stderr instead of syslog
+# --log-level  : Mask log priorities above this level
+# 
+# See rtpengine -? for help
+#
+# OPTIONS="--interface=xxx.xxx.xxx.xxx --listen-ng=127.0.0.1:60000 --port-min=50000 --port-max=55000 --log-stderr --log-level=7"
 OPTIONS=""
