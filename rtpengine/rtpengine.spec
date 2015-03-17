@@ -59,7 +59,7 @@ install -D -p -m755 daemon/rtpengine %{buildroot}%{_sbindir}/rtpengine
 
 ## Install the systemd script and configuration file
 install -D -p -m644 %{SOURCE1} \
-	%{buildroot}%{_sysconfdir}/systemd/system/rtpengine
+	%{buildroot}/usr/lib/systemd/system/rtpengine.service
 install -D -p -m644 %{SOURCE2} \
 	%{buildroot}%{_sysconfdir}/sysconfig/rtpengine
 mkdir -p %{buildroot}%{_sharedstatedir}/rtpengine
@@ -89,7 +89,7 @@ rm -rf %{buildroot}
 
 %post
 if [ $1 -eq 1 ]; then
-   /bin/systemctl enable %{name} || :
+   /bin/systemctl enable %{name}.service || :
 fi
 
 %post dkms
@@ -102,7 +102,7 @@ true
 %preun
 if [ $1 = 0 ] ; then
 	/bin/systemctl stop %{name}
-	/bin/systemctl disable %{name}
+	/bin/systemctl disable %{name}.service
 fi
 
 %preun dkms
@@ -115,7 +115,7 @@ true
 %{_sbindir}/rtpengine
 
 # systemd script and configuration file
-%{_sysconfdir}/systemd/system/rtpengine
+/usr/lib/systemd/system/rtpengine.service
 %config(noreplace) %{_sysconfdir}/sysconfig/rtpengine
 %dir %{_sharedstatedir}/rtpengine
 
