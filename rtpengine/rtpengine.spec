@@ -16,7 +16,7 @@ Requires: glibc zlib openssl pcre libcurl xmlrpc-c
 
 %description
 The Sipwise NGCP rtpengine is a proxy for RTP traffic and other UDP based
-media traffic. It's meant to be used with the Kamailio SIP proxy and forms a
+media traffic. It's meant to be used with the OpenSips SIP proxy and forms a
 drop-in replacement for any of the other available RTP and media proxies.
 
 %package dkms
@@ -114,7 +114,7 @@ true
 # Userspace daemon
 %{_sbindir}/rtpengine
 
-# init.d script and configuration file
+# systemd script and configuration file
 %{_sysconfdir}/systemd/system/rtpengine
 %config(noreplace) %{_sysconfdir}/sysconfig/rtpengine
 %dir %{_sharedstatedir}/rtpengine
