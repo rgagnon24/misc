@@ -23,7 +23,7 @@ drop-in replacement for any of the other available RTP and media proxies.
 Summary:         Kernel module for NGCP rtpengine in-kernel packet forwarding
 Group:           System Environment/Daemons
 BuildArch:       noarch
-Requires:        gcc make redhat-rpm-config
+Requires:        gcc make redhat-rpm-config kernel-devel kernel-headers
 Requires(post):  epel-release dkms
 Requires(preun): epel-release dkms
 
